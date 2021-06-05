@@ -20,7 +20,6 @@ class Qiniu {
     config.zone = qiniu.zone.Zone_z2;
     config.useHttpsDomain = true;
     config.useCdnDomain = true;
-    console.log(filePath);
     const stat =  fs.statSync(filePath)
     if(stat.isDirectory()) {
       throw new Error('不支持上传目录！')

@@ -13,7 +13,7 @@ yarn add upload2qiniu
 
 ## Usage
 
-touch a .env file under user home page like: 
+touch a .env file under user home dir like `/Users/ashin/.env` and add the config
 
 ```json
 QINIU_AK=your qiniu ak
