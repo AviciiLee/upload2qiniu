@@ -1,0 +1,16 @@
+{
+  "name": "upload2qiniu",
+  "version": "1.0.0",
+  "description": "Command line tool for uploading file to QiNiuYun",
+  "main": "lib/index.js",
+  "bin": {
+    "upload2qiniu": "bin/cli.js"
+  },
+  "repository": "https://github.com/AviciiLee/upload2qiniu.git",
+  "author": "AshinLee <lx_ashin@aliyun.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^7.2.0",
+    "dotenv": "^10.0.0"
+  },
+}
