@@ -6,11 +6,18 @@
   "bin": {
     "upload2qiniu": "bin/cli.js"
   },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node ./src/index.js"
+  },
   "repository": "https://github.com/AviciiLee/upload2qiniu.git",
   "author": "AshinLee <lx_ashin@aliyun.com>",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.4.0",
     "commander": "^7.2.0",
-    "dotenv": "^10.0.0"
-  },
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "qiniu": "^7.3.3",
+    "user-home": "^3.0.0"
+  }
 }
