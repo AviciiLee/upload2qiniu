@@ -1,6 +1,6 @@
 {
   "name": "upload2qiniu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Command line tool for uploading file to QiNiuYun",
   "main": "lib/index.js",
   "bin": {
