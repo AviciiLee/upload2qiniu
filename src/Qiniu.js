@@ -39,7 +39,7 @@ class Qiniu {
       }
       if (respInfo.statusCode == 200) {
         const { key } = respBody
-        console.log(`链接：${process.env.QINIU_CDNLINK}${key}`);
+        console.log(`link：${process.env.QINIU_CDNLINK}${key}`);
       } else {
         console.log(respInfo.statusCode);
         console.log(respBody);

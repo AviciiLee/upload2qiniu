@@ -5,10 +5,10 @@ Command line tool for uploading file to QiNiuYun
 
 ```bash
 # with npm
-npm install upload2qiniu
+npm install -g upload2qiniu
 
 # or with Yarn
-yarn add upload2qiniu
+yarn global add upload2qiniu
 ```
 
 ## Usage

@@ -1,19 +1,20 @@
 const path = require('path')
 const fs = require('fs')
-const UserHome = require('user-home')
+const { homedir } = require('os')
 const colors = require('colors')
+const semver = require('semver')
 
 const Qiniu = require('./Qiniu')
-
-
+const constant = require('./constant')
 // .env文件路径
-let envPath =  path.join(UserHome, '/.env')
+let envPath =  path.join(homedir(), '/.env')
 if(process.env.NODE_ENV === 'development') {
   envPath =  path.join(__dirname, '../.env')
 }
 
 function upload(options) {
   try {
+    checkNodeVersion()
     checkUserHomeEnvFile()
     initConfig()
     let localFile = ''
@@ -29,7 +30,7 @@ function upload(options) {
     let qiniu = new Qiniu()
     qiniu.upload(localFile)
   } catch (error) {
-    console.log(colors.red(error));
+    console.log(colors.red(error.message));
   }
 }
 
@@ -50,6 +51,14 @@ function initConfig() {
   require('dotenv').config({
     path: envPath
   })
+}
+
+function checkNodeVersion() {
+  const currentVersion = process.version
+  const lowestNodeVersion = constant.LOWEST_NODE_VERSION
+  if(!semver.gte(currentVersion, lowestNodeVersion)) {
+    throw new Error(colors.red(`need node version >= ${lowestNodeVersion}`))
+  }
 }
 
 
