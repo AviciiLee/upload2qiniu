@@ -15,9 +15,11 @@ class Qiniu {
   }
 
   upload(filePath) {
-
+    if(!process.env.QINIU_ZONE) {
+      throw new Error('you should config the `QINIU_ZONE` in the .env file, like: QINIU_ZONE=Zone_z2')
+    }
     const config = new qiniu.conf.Config();
-    config.zone = qiniu.zone.Zone_z2;
+    config.zone = qiniu.zone[process.env.QINIU_ZONE];
     config.useHttpsDomain = true;
     config.useCdnDomain = true;
     const stat =  fs.statSync(filePath)
@@ -41,8 +43,7 @@ class Qiniu {
         const { key } = respBody
         console.log(`link：${process.env.QINIU_CDNLINK}${key}`);
       } else {
-        console.log(respInfo.statusCode);
-        console.log(respBody);
+        throw new Error(`${respInfo.statusCode}: ${respBody.error}`)
       }
     });
   }

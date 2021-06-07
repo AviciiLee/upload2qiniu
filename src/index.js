@@ -53,6 +53,9 @@ function initConfig() {
   })
 }
 
+/**
+ * 检查node版本
+ */
 function checkNodeVersion() {
   const currentVersion = process.version
   const lowestNodeVersion = constant.LOWEST_NODE_VERSION
